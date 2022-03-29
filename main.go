@@ -150,8 +150,9 @@ func main() {
 		panic(err)
 	}
 
-	// http.Handle("/api/graphql", gqlHandler())
+	http.Handle("/api/graphql", gqlHandler())
 	http.Handle("/api/graphiql", graphiqlHandler)
-	http.ListenAndServe(":4000", nil)
 	fmt.Println("GraphQL server running on http://localhost:4000/api/graphql. GraphiQL listening on http://localhost:4000/api/graphiql 🚀")
+	http.ListenAndServe(":4000", nil)
+
 }
